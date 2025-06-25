@@ -2,7 +2,7 @@
 
 Application::Application()
     : m_WindowContext("My Application", 800, 600),
-    m_CurrentScreen(std::make_unique<StartScreen>())
+    m_CurrentScreen{std::make_unique<StartScreen>()}
 {
 }
 
