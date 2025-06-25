@@ -19,17 +19,12 @@ void Application::Update()
 {
     m_WindowContext.SetTitle(FormatTitle());
 
-    if (m_CurrentScreen == nullptr)
-    {
-        TraceLog(LOG_FATAL, "Invalid screen loaded.");
-    }
-
+    m_CurrentScreen->Update();
+    
     if (m_CurrentScreen->IsFinished())
     {
-        m_CurrentScreen = std::move(m_CurrentScreen->GetNextScreen());
+        m_CurrentScreen = m_CurrentScreen->GetNextScreen();
     }
-
-    m_CurrentScreen->Update();
 }
 
 void Application::Draw()

@@ -2,6 +2,7 @@
 
 #include "raylib.h"
 #include "../interfaces/screen.h"
+#include "null_screen.h"
 
 class StartScreen : public Screen
 {

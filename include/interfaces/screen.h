@@ -22,7 +22,7 @@ public:
 protected:
     Screen() : m_NextScreen(nullptr), m_Finished(false) {};
     void SetFinished(bool finished) { m_Finished = finished; };
-    void SetNextScreen(std::unique_ptr<Screen>& nextScreen) { m_NextScreen = std::move(nextScreen); };
+    void SetNextScreen(std::unique_ptr<Screen> nextScreen) { m_NextScreen = std::move(nextScreen); };
     
 private:
     bool m_Finished = false;
