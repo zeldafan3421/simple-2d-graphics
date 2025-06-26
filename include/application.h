@@ -16,7 +16,7 @@ class Application
 public:
     using ScreenPtr = std::unique_ptr<Screen>;
     template <std::size_t T>
-    using ScreenArray = std::array<Screen, T>;
+    using ScreenArray = std::array<ScreenPtr, T>;
 
     Application();
 
