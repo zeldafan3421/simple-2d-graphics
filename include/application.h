@@ -6,10 +6,16 @@
 #include "screens/start_screen.h"
 #include <string>
 #include <memory>
+#include <array>
+#include <typeinfo>
+#include <functional>
+#include <utility>
 
 class Application
 {
 public:
+    using ScreenPtr = std::unique_ptr<Screen>;
+
     Application();
 
     void Run();
@@ -19,9 +25,13 @@ public:
     ~Application();
 
 private:
+    Screen& GetCurrentScreen();
 
     const std::string FormatTitle() const;
 
     WindowContext m_WindowContext;
-    std::unique_ptr<Screen> m_CurrentScreen;
+    int m_CurrentScreenIndex;   
+
+    constexpr static int c_ScreenCount = 2;
+    std::array<ScreenPtr, c_ScreenCount> m_Screens;
 };

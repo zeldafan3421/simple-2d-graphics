@@ -3,7 +3,6 @@
 StartScreen::StartScreen()
     : Screen()
 {
-    SetNextScreen(std::make_unique<NullScreen>());
 }
 
 void StartScreen::Update()
