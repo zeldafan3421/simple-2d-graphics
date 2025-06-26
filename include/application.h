@@ -15,6 +15,8 @@ class Application
 {
 public:
     using ScreenPtr = std::unique_ptr<Screen>;
+    template <std::size_t T>
+    using ScreenArray = std::array<Screen, T>;
 
     Application();
 
@@ -30,8 +32,8 @@ private:
     const std::string FormatTitle() const;
 
     WindowContext m_WindowContext;
-    int m_CurrentScreenIndex;   
+    std::size_t m_CurrentScreenIndex;   
 
-    constexpr static int c_ScreenCount = 2;
-    std::array<ScreenPtr, c_ScreenCount> m_Screens;
+    constexpr static std::size_t c_ScreenCount = 2;
+    ScreenArray<c_ScreenCount> m_Screens;
 };
