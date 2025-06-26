@@ -6,7 +6,7 @@
 class Screen
 {
 public:
-    enum Index
+    enum Index : std::size_t
     {
         Start,
         Null
